@@ -20,6 +20,28 @@ def mse(y,y_hat,derivate=False):
     else:            
         return np.mean((y_hat - y)**2)
     
+# Función de activación ReLU
+def relu(x, derivate=False):
+    if derivate:
+        return np.where(x > 0, 1, 0)
+    else:
+        return np.maximum(0, x)
+
+def tanh(x, derivate=False):
+    if derivate:
+        return 1 - np.tanh(x)**2
+    else:
+        return np.tanh(x)
+
+
+def grafica(n, x, f, name):
+    plt.figure(n)
+    plt.plot(x, f)
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title(f'Función {name}')
+    plt.show()
+    
 # creamos valores espaciados para el eje x
 x = np.linspace(10,-10,100)
 
@@ -34,21 +56,22 @@ plt.show()
 
 
 # # Crear la primera figura y gráfico
-# plt.figure(1)
-# plt.plot(x, sigmoid(x))
-# plt.xlabel('x')
-# plt.ylabel('y')
-# plt.title('Función Sigmoid')
-# plt.show()
+grafica(1, x, sigmoid(x), "Sigmoid")
 
 # # Crear la segunda figura y gráfico
-# plt.figure(2)
-# plt.plot(x, step(x), color='orange')
-# plt.xlabel('x')
-# plt.ylabel('y')
-# plt.title('Función Step')
-# plt.show()
+grafica(2, x, step(x), "Step")
 
+# Crear la tercera figura y grafico
+grafica(3, x, tanh(x), "Tanh")
+
+# Ejemplo de uso ReLu
+x = np.array([-2, -1, 0, 1, 2])
+
+# Crear la cuarta figura y grafico
+grafica(4, x, relu(x), "ReLu")
+
+
+# Ejemplo de función de pérdida
 prediction = np.array([0.9,0.5,0.2,0.0])
 real =  np.array([0,0,1,1])
 
