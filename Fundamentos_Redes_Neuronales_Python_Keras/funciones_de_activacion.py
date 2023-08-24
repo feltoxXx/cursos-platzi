@@ -33,7 +33,6 @@ def tanh(x, derivate=False):
     else:
         return np.tanh(x)
 
-
 def grafica(n, x, f, name):
     plt.figure(n)
     plt.plot(x, f)
@@ -77,3 +76,7 @@ real =  np.array([0,0,1,1])
 
 mse_result = mse(real, prediction)
 print(mse_result)
+
+
+if __name__ == '__main__':
+    print('Worked!!')
