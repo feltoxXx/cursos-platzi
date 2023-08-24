@@ -1,0 +1,55 @@
+# Python-related
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.vscode/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data and model files
+data/
+models/
+
+# Logs and temporary files
+*.log
+*.swp
+*.swo
+*.tmp
+*.pid
+*.dmp
+
+# macOS specific
+.DS_Store
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# IDE specific
+.idea/
+
+# Ignore checkpoints for TensorFlow
+model_checkpoint_path
+
+# Ignore checkpoints and log files for PyTorch
+runs/
+events.out.tfevents.*
+
+# Ignore weights for Keras
+h5py/
+
+# Ignore model files for ONNX
+*.onnx
+
+# Ignore model files for TensorBoard
+tensorboard/
