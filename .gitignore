@@ -53,3 +53,5 @@ h5py/
 
 # Ignore model files for TensorBoard
 tensorboard/
+
+*.hdf5
