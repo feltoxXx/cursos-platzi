@@ -84,16 +84,17 @@ model.compile(loss='categorical_crossentropy',
               optimizer='rmsprop',
               metrics=['accuracy'])
 
-hist = model.fit(x_train, y_train, batch_size=32, epochs=100, validation_data=(x_valid, y_valid), verbose=2, shuffle=True)
+checkpoint = keras.callbacks.ModelCheckpoint(filepath='cifar_clasificacion.hdf5',
+                                            verbose=1,
+                                            monitor='accuracy',
+                                            save_best_only=True)
+
+hist = model.fit(x_train, y_train, batch_size=32, epochs=50, validation_data=(x_valid, y_valid), verbose=2, callbacks=[checkpoint], shuffle=True)
 
 plt.plot(hist.history['accuracy'],label='Train')
 plt.plot(hist.history['val_accuracy'],label='Valid')
 plt.legend()
 plt.show()
 
-checkpoint = keras.callbacks.ModelCheckpoint(filepath='cifar_clasificacion.hdf5',
-                                            verbose=1,
-                                            monitor='accuracy',
-                                            save_best_only=True)
-
+print('evaluate')
 model.evaluate(x_test,y_test)
