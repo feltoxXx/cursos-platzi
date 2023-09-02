@@ -55,3 +55,6 @@ h5py/
 tensorboard/
 
 *.hdf5
+*.tar.gz
+*.zip
+*.rar
