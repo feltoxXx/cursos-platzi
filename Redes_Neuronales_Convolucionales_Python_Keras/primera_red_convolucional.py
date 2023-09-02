@@ -1,7 +1,9 @@
 # Importando librerías
 import tensorflow as tf
-from tensorflow.keras.datasets import fashion_mnist
-from tensorflow.keras.layers import Conv2D, Dropout, MaxPooling2D, Flatten, Dense
+from keras.datasets import fashion_mnist
+from keras.layers import Conv2D, Dropout, MaxPooling2D, Flatten, Dense
+from keras.models import clone_model
+
 # Helper libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -63,18 +65,17 @@ model.fit(train_images,
           callbacks=[early],
           epochs=10)
 
-checkpoint = tf.keras.callbacks.ModelCheckpoint(filepath='mi_primer_red_conv.hdf5',
+checkpoint = tf.keras.callbacks.ModelCheckpoint(filepath='./models/mi_primer_red_conv.hdf5',
                                 verbose=1,
-                                  monitor='accuracy',
-                                  save_best_only=True)
+                                monitor='accuracy',
+                                save_best_only=True)
 model.fit(train_images,
          train_labels,
          batch_size=64,
          callbacks=[checkpoint],
          epochs=10)
 
-
-model2 = model
+model2 = clone_model(model)
 model2.load_weights('./mi_primer_red_conv.hdf5')
 
 model2.evaluate(test_images, test_labels)
