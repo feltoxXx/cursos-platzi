@@ -58,3 +58,4 @@ tensorboard/
 *.tar.gz
 *.zip
 *.rar
+.Trash*
