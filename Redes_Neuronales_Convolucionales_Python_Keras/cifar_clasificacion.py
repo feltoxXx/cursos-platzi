@@ -122,12 +122,12 @@ hist = model.fit(datagen.flow(x_train, y_train, batch_size=128),
                 )
 
 
-# hist = model.fit(x_train, y_train, batch_size=32, epochs=50, validation_data=(x_valid, y_valid), verbose=2, callbacks=[checkpoint], shuffle=True)
+hist = model.fit(x_train, y_train, batch_size=32, epochs=50, validation_data=(x_valid, y_valid), verbose=2, callbacks=[checkpoint], shuffle=True)
 
-# plt.plot(hist.history['accuracy'],label='Train')
-# plt.plot(hist.history['val_accuracy'],label='Valid')
-# plt.legend()
-# plt.show()
+plt.plot(hist.history['accuracy'],label='Train')
+plt.plot(hist.history['val_accuracy'],label='Valid')
+plt.legend()
+plt.show()
 
 
 # print('evaluate')
