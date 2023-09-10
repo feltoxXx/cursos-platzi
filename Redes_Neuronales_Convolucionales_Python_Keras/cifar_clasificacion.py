@@ -108,7 +108,7 @@ model.compile(loss='categorical_crossentropy',
 #               optimizer='rmsprop',
 #               metrics=['accuracy'])
 
-checkpoint = ModelCheckpoint(filepath='./models/best_model.hdf5',
+checkpoint = ModelCheckpoint(filepath='./models/best_model_wsl.hdf5',
                              verbose=1,
                              monitor='val_accuracy',
                              save_best_only=True)
@@ -137,6 +137,6 @@ plt.show()
 # Clonamos el modelo
 model2 = clone_model(model)
 
-model2.load_weights('./models/best_model.hdf5')
+model2.load_weights('./models/best_model_wsl.hdf5')
 print('evaluate')
 model.evaluate(x_test,y_test)
